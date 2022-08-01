@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Declare character arrays for future use
+// Declare constant object with properties set to character strings for future use
 const passElements = {
   upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowerCase: "abcdefghijklmnopqrstuvwxyz",
@@ -26,12 +26,14 @@ function writePassword() {
       if (isNaN(passLength)){
         alert(
           "Please choose a numerical value.");
-        writePassword();
+        return null;
+        // writePassword();
       }
       if ( (passLength < 8) || (passLength > 128) ){
         alert(
           "Please choose a value between 8 and 128.");
-        writePassword();
+        return null;
+        // writePassword();
       }
   passLowercase = prompt(
     "Password containing lowercase letters? Enter y/n");
@@ -39,7 +41,7 @@ function writePassword() {
       if ((passLowercase != "y" ) && (passLowercase != "n")){
         alert(
           "Please enter y for yes or n for no.");
-        writePassword();
+        return null;
       }
   passUppercase = prompt(
     "Password containing UPPERCASE letters? Enter y/n");
@@ -47,7 +49,7 @@ function writePassword() {
       if ((passUppercase != "y" ) && (passUppercase != "n")){
         alert(
           "Please enter y for yes or n for no.");
-        writePassword();
+        return null;
       }
   passNumbers = prompt(
     "Password containing numbers? Enter y/n");
@@ -55,7 +57,7 @@ function writePassword() {
       if ((passNumbers != "y" ) && (passNumbers != "n")){
         alert(
           "Please enter y for yes or n for no.");
-        writePassword();
+          return null;
       }
   passSpecial = prompt(
     "Password containing special characters? Enter y/n");
@@ -63,7 +65,7 @@ function writePassword() {
       if ((passSpecial != "y" ) && (passSpecial != "n")){
         alert(
           "Please enter y for yes or n for no.");
-        writePassword();
+        return null;
       }
 
       // Corrective alert for no character types selected
@@ -80,8 +82,6 @@ function writePassword() {
   let responseArray = [
     passLowercase, passUppercase, passNumbers, passSpecial
     ];
-
-console.log(responseArray);
 
   // With all user inputs collected in array, run function to generate password
   generatePassword();
@@ -110,8 +110,6 @@ console.log(responseArray);
             activeArray.push(functionArray[i]);
           }
       }
-
-console.log(activeArray);
     
     // Starting with an empty string, add random characters until desired password length is acheived
     var thepassword = "";
@@ -120,8 +118,6 @@ console.log(activeArray);
       let keyToAdd = activeArray[funChooser]();
       thepassword += keyToAdd;
     }
-    
-console.log(thepassword);
 
     // Pass generated password back to HTML for display
     var passwordText = document.querySelector("#password");
