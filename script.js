@@ -12,22 +12,28 @@ const passElements = {
 // Primary function for password generator page, starting with prompts for user input
 function writePassword() {
   
-  let passLength = prompt(
+  // Declare variables. In certain patterns of bad user choice, the browser gets stuck in a loop of alerts and prompts. Hoping this will clear things up.
+  var passLength = "";
+  var passLowercase = "";
+  var passUppercase = "";
+  var passNumbers = "";
+  var passSpecial = "";
+
+  passLength = prompt(
     "How many characters would you like your password to contain?");
+      passLength = Number(passLength);
       // Corrective alerts for bad user choices
       if (isNaN(passLength)){
         alert(
           "Please choose a numerical value.");
         writePassword();
       }
-
       if ( (passLength < 8) || (passLength > 128) ){
         alert(
           "Please choose a value between 8 and 128.");
         writePassword();
       }
-
-  let passLowercase = prompt(
+  passLowercase = prompt(
     "Password containing lowercase letters? Enter y/n");
       // Corrective alert for unparseable answers
       if ((passLowercase != "y" ) && (passLowercase != "n")){
@@ -35,7 +41,7 @@ function writePassword() {
           "Please enter y for yes or n for no.");
         writePassword();
       }
-  let passUppercase = prompt(
+  passUppercase = prompt(
     "Password containing UPPERCASE letters? Enter y/n");
       // Corrective alert for unparseable answers
       if ((passUppercase != "y" ) && (passUppercase != "n")){
@@ -43,7 +49,7 @@ function writePassword() {
           "Please enter y for yes or n for no.");
         writePassword();
       }
-  let passNumbers = prompt(
+  passNumbers = prompt(
     "Password containing numbers? Enter y/n");
       // Corrective alert for unparseable answers
       if ((passNumbers != "y" ) && (passNumbers != "n")){
@@ -51,7 +57,7 @@ function writePassword() {
           "Please enter y for yes or n for no.");
         writePassword();
       }
-  let passSpecial = prompt(
+  passSpecial = prompt(
     "Password containing special characters? Enter y/n");
       // Corrective alert for unparseable answers
       if ((passSpecial != "y" ) && (passSpecial != "n")){
