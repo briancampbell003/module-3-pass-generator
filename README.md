@@ -16,5 +16,5 @@ This project's code took inspiration from a resource found on the web, namely Tu
 Here is a screenshot:
 ![screenshot of webpage](demo.png)
 
-I hope you appreciate this password generator, you can try it for yourself at [the deployed GitHub webpage](https://briancampbell003.github.io/module-########)
+I hope you appreciate this password generator, you can try it for yourself at [the deployed GitHub webpage](https://briancampbell003.github.io/module-3-pass-generator/)
 
